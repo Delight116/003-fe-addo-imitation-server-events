@@ -46,8 +46,8 @@ function dateFormat(date){
 var eventStorage = [];
 var eventDates = [new Date(2016,11,5,15,0), new Date(2017,3,8,11,0), new Date(2017,1,30,21,0),new Date(2017,11,5,15,0), new Date(2017,1,21,16,0)];
 var eventEndDates = [new Date(2016,11,8,15,0), new Date(2017,3,15,16,0), new Date(2017,2,5,10,0),new Date(2017,11,5,15,0), new Date()];
-var eventLocation = ['Театр','Кіно зал','Екватор','Конкорд','Цум']
-var eventNames = ['Концерт','Автограф сесія','Диско','Флеш Моб','Шото','Поход кудато','Прийшли','Можно йти','Уже пішли','Скоро будуть','Танцюльки','Співульки','Пянка','Бой','Чудо острів','Holahoop']
+var eventLocation = ['Театр','Кіно зал','Екватор','Конкорд','Цум'];
+var eventNames = ['Концерт','Автограф сесія','Диско','Флеш Моб','Шото','Поход кудато','Прийшли','Можно йти','Уже пішли','Скоро будуть','Танцюльки','Співульки','Пянка','Бой','Чудо острів','Holahoop'];
 var nowDate = new Date();
 function getRandom(min, max) {
   min = Math.ceil(min);
@@ -57,7 +57,7 @@ function getRandom(min, max) {
 var item=0;
 var server = setInterval(function () {
   proof = false;
-  elem = getRandom(0, 5)
+  elem = getRandom(0, 5);
   events =  {
       id: item,
       name: eventNames[item],
@@ -65,54 +65,54 @@ var server = setInterval(function () {
       dateEnd: eventEndDates[elem],
       location: eventLocation[elem]
     }
-    eventStorage[item] = events
+    eventStorage[item] = events;
   item++;
 },100);
 
 setTimeout(function () {
   clearInterval(server);
   main();
-  // alert('Сервер загружен')
+  // alert('Сервер загружен');
 
-},1600)
+},1600);
 
 function getEvent(id){
     if(eventStorage.hasOwnProperty(id)){
-      return eventStorage[id]
+      return eventStorage[id];
     }
-    return {}
+    return {};
 }
 
 function getPastEvent(){
-  var res = []
+  var res = [];
   eventStorage.forEach(function (item) {
     if (item.dateEnd.getTime() < nowDate.getTime()) {
-      console.log('past')
-      res.push(item)
+      console.log('past');
+      res.push(item);
     }
-  })
+  });
   return res;
 }
 
 function getFutureEvent(){
-  var res = []
+  var res = [];
   eventStorage.forEach(function (item) {
     if (item.dateStart.getTime() > nowDate.getTime()) {
-      console.log('future')
-      res.push(item)
+      console.log('future');
+      res.push(item);
     }
-  })
+  });
   return res;
 }
 
 function getNowEvent(){
-  var res = []
+  var res = [];
   eventStorage.forEach(function (item) {
     if (item.dateStart.getTime() < nowDate.getTime() && item.dateEnd.getTime() >= nowDate.getTime()) {
-      console.log('now')
-      res.push(item)
+      console.log('now');
+      res.push(item);
     }
-  })
+  });
   return res;
 }
 
@@ -120,14 +120,14 @@ function showEvent(item){
   var str = ''
   item.forEach(function(elem) {
       str += 'Название: '+elem.name+'\nместо проведения: '+elem.location+'\nдата начала: '+dateFormat(elem.dateStart)+'\nдата конца: '+ dateFormat(elem.dateEnd)+'\n\n';
-  })
+  });
   console.log(str);
 }
 function main(){
-  console.log('Future events')
-  showEvent(getFutureEvent())
-  console.log('Now events')
-  showEvent(getNowEvent())
-  console.log('Past events')
-  showEvent(getPastEvent())
+  console.log('Future events');
+  showEvent(getFutureEvent());
+  console.log('Now events');
+  showEvent(getNowEvent());
+  console.log('Past events');
+  showEvent(getPastEvent());
 }
