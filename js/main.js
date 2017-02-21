@@ -39,16 +39,16 @@ function dateFormat(date){
     return date.getDate() + " "
         + months[date.getMonth()] + " "
         + date.getFullYear() + " "
-        + date.getHours() + " : "
+        + date.getHours() + ":"
         + date.getMinutes();
 
 }
-eventStorage = [];
-eventDates = [new Date(2016,11,05,15,0), new Date(2017,3,08,11,0), new Date(2017,1,30,21,0),new Date(2017,11,05,15,0), new Date(2017,01,21,16,0)]
-eventEndDates = [new Date(2016,11,08,15,0), new Date(2017,3,15,16,0), new Date(2017,2,05,10,0),new Date(2017,11,05,15,0), new Date(2017,01,21,19,0)]
-eventLocation = ['Театр','Кіно зал','Екватор','Конкорд','Цум']
-eventNames = ['Концерт','Автограф сесія','Диско','Флеш Моб','Шото','Поход кудато','Прийшли','Можно йти','Уже пішли','Скоро будуть','Танцюльки','Співульки','Пянка','Бой','Чудо острів','Holahoop']
-nowDate = new Date();
+var eventStorage = [];
+var eventDates = [new Date(2016,11,5,15,0), new Date(2017,3,8,11,0), new Date(2017,1,30,21,0),new Date(2017,11,5,15,0), new Date(2017,1,21,16,0)];
+var eventEndDates = [new Date(2016,11,8,15,0), new Date(2017,3,15,16,0), new Date(2017,2,5,10,0),new Date(2017,11,5,15,0), new Date()];
+var eventLocation = ['Театр','Кіно зал','Екватор','Конкорд','Цум']
+var eventNames = ['Концерт','Автограф сесія','Диско','Флеш Моб','Шото','Поход кудато','Прийшли','Можно йти','Уже пішли','Скоро будуть','Танцюльки','Співульки','Пянка','Бой','Чудо острів','Holahoop']
+var nowDate = new Date();
 function getRandom(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -117,9 +117,9 @@ function getNowEvent(){
 }
 
 function showEvent(item){
-  str = ''
+  var str = ''
   item.forEach(function(elem) {
-      str += 'Название: '+elem.name+'\nместо проведения: '+elem.location+'\nдата начала :'+dateFormat(elem.dateStart)+'\nдата конца: '+ dateFormat(elem.dateEnd)+'\n\n';
+      str += 'Название: '+elem.name+'\nместо проведения: '+elem.location+'\nдата начала: '+dateFormat(elem.dateStart)+'\nдата конца: '+ dateFormat(elem.dateEnd)+'\n\n';
   })
   console.log(str);
 }
