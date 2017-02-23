@@ -1,0 +1,65 @@
+.main-container {
+    position: relative;
+}
+
+.castl {
+    position: absolute;
+    margin: auto;
+    width: 200px;
+    left: 0;
+    top: 50px;
+    right: 0;
+}
+
+.wood, .stone, .gold {
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+}
+.wood.show a.take, .stone.show a.take, .gold.show a.take, .castl.show a.take{
+  visibility: visible;
+}
+.main-container > .castl > img {
+    width: 100%;
+}
+a.take {
+    position: absolute;
+    font-size: 16px;
+    color: #333;
+    font-weight: bolder;
+    text-transform: uppercase;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    display: inline-block;
+    padding-top: 70%;
+    background: rgba(238, 238, 238, 0.73);
+    z-index: 2;
+    text-align: center;
+    visibility: hidden;
+}
+.main-container > div > img {
+    position: relative;
+    width: 100px;
+}
+
+.wood {
+    left: 100px;
+    top: 150px;
+}
+
+.stone {
+    left: 290px;
+    top: 400px;
+}
+
+.gold {
+    right: 100px;
+    top: 150px;
+}
+
+.about {
+    text-align: center;
+}
